@@ -12,21 +12,22 @@ import junit.framework.*;
 import  cn.gyyx.java.persistence.GameDao;
 import cn.gyyx.java.persistence.ServerDao;
 public class TestClass {
-	
+	MemcachedDao mem=new MemcachedDao();
 	//测试设置memcached
 	@org.junit.Test
 	public void TestSetMemcached() {
 		ServerInfo server=new ServerInfo();
 		server.setCode(1);
 		server.setName("b");
-		MemcachedDao.getInstance().SetInfo(server);
+		
+		mem.SetInfo(server);
 		
 	}
 	
 	//测试获取memcached
 	@org.junit.Test
 	public void TestGetMemcached() {
-		String name=MemcachedDao.getInstance().GetInfo("1");
+		String name=mem.GetInfo("1");
 		Assert.assertEquals(name,"b"); 
 	}
 

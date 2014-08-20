@@ -72,7 +72,8 @@ public class HomeController {
 		List<ServerInfo> lists = serverDao.queryListById(1);
 		model.addAttribute("serverList", lists);
 		model.addAttribute("gameList", list);
-		MemcachedDao.getInstance().SetInfo(lists.get(0));
+		MemcachedDao memcached=new MemcachedDao();
+		memcached.SetInfo(lists.get(0));
 		return "home";
 	}
 	
@@ -108,7 +109,8 @@ public class HomeController {
 	
 	@RequestMapping(value = "/memcahe", method = RequestMethod.GET)
 	public String memcahe(Model model) {
-		String name=MemcachedDao.getInstance().GetInfo("1");
+		MemcachedDao memcached=new MemcachedDao();
+		String name=memcached.GetInfo("1");
 		model.addAttribute("name", name);
 		return "memcahe";
 	}

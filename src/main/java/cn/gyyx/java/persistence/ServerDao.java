@@ -54,7 +54,8 @@ public class ServerDao extends BaseDao {
 			ServerInfo model=new ServerInfo();
 			model.setCode(1);
 			model.setName(serverName);
-			MemcachedDao.getInstance().SetInfo(model);
+			MemcachedDao mem=new MemcachedDao();
+			mem.SetInfo(model);
 		} catch (Exception e) {
 			session.rollback();
 			e.printStackTrace();
