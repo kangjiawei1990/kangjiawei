@@ -5,7 +5,7 @@
         <title>velocity</title>
     </head>
 	<body >
-	 The memcached is ${name}
+	 My memcached test : ${name}
 	 <div><a href="">返回</a></div>
 
     </body>
